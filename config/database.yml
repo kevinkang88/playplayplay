@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: playltics_development
+test:
+  <<: *default
+  database: playltics_test
+production:
+  <<: *default
+  database: playltics_production
+  # username: #Set these when you deploy
+  # password:
