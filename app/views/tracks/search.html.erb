@@ -1,0 +1,11 @@
+<h1>this is search area</h1>
+
+<%= form_tag(result_path,:method => "get", :remote => true) do %>
+  <%= text_field_tag 'Search',nil,placeholder: 'Enter your search query here' %>
+
+  <%= submit_tag 'Search' %>
+<% end %>
+
+
+<div id="search-results-area">
+</div>
