@@ -4,6 +4,9 @@ gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rest-client'
+gem 'activeresource'
+gem 'activerecord'
 gem 'thin'
 gem 'json'
 gem 'devise'

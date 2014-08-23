@@ -136,6 +136,9 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rest_client (1.7.3)
       netrc (~> 0.7.7)
     rspec-core (2.14.8)
@@ -195,6 +198,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
+  activeresource
   capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
@@ -206,6 +211,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.2.18)
+  rest-client
   rspec-rails (= 2.14)
   rspotify
   sass-rails (~> 3.2.3)
