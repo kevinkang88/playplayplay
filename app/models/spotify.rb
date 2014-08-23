@@ -26,7 +26,7 @@ class Spotify < ActiveResource::Base
     tracks_ary.each do |track|
       track_data = {}
       track_data['album'] = track['album']['name']
-      track_data['data'] = track['album']['released']
+      track_data['date'] = track['album']['released']
       track_data['pop'] = track['popularity']
       track_data['length'] = track['length']
       track_data['full'] = "https://play.spotify.com/track/#{track['href'][14..-1]}"
