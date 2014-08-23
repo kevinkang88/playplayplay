@@ -1,7 +1,11 @@
 <h1>this is search area</h1>
 
-<input type='text' id="search-box"/>
-<%= link_to("Search",nil,:remote => true, id:"search-btn") %>
+<%= form_tag(result_path,:method => "get", :remote => true) do %>
+  <%= text_field_tag 'Search',nil,placeholder: 'Enter your search query here' %>
+
+  <%= submit_tag 'Search' %>
+<% end %>
+
 
 <div id="search-results-area">
 </div>

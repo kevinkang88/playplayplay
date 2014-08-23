@@ -15,7 +15,8 @@ class Spotify < ActiveResource::Base
     end
     detailed_tracks_raw = RestClient.get("http://ws.spotify.com/search/1/track.json?q=#{key}")
     tracks_ary = JSON.parse(detailed_tracks_raw)['tracks']
-    p extract_info(tracks_ary)
+    tracks_ary_parsed = extract_info(tracks_ary)
+    return tracks_ary_parsed
   end
 
   protected

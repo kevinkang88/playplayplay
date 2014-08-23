@@ -2,12 +2,13 @@ class TracksController < ApplicationController
   before_filter :authenticate_user!
 
   def search
-    spot = Spotify.new
-    spot.search_track("lonely girl")
+
   end
 
   def result
-
+    search_term = params["Search"]
+    spotify = Spotify.new
+    @results = spotify.search_track(search_term)
   end
 
 end

@@ -1,3 +1,4 @@
-<p><%= @track_info.inspect %></p>
-<p><%= @track_info %></p>
 <p>hi i am results page</p>
+<% @results.each do |track| %>
+  <p><%= track["artist"] %></p>
+<% end %>
