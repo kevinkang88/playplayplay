@@ -6,7 +6,4 @@ class DashboardController < ApplicationController
 
   end
 
-  def search
-
-  end
 end
