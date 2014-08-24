@@ -1,4 +1,21 @@
 <p>hi i am results page</p>
 <% @results.each do |track| %>
-  <p><%= track["artist"] %></p>
+  <ul>
+    <li>
+      <span><%= track["date"] %></span> **
+      <span><%= track["title"] %></span> **
+      <span><%= track["artist"] %></span> **
+      <span><%= track["album"] %></span> **
+    </li>
+  </ul>
+  <%= form_for :track, url: {action: 'create'} do |f| %>
+    <%= f.hidden_field(:title,:value => track["title"]) %>
+    <%= f.hidden_field(:date,:value => track["date"]) %>
+    <%= f.hidden_field(:artist,:value => track["artist"]) %>
+    <%= f.hidden_field(:album,:value => track["album"]) %>
+    <%= f.hidden_field(:length,:value => track["length"]) %>
+    <%= f.hidden_field(:pop,:value => track["pop"]) %>
+    <%= f.hidden_field(:full,:value => track["full"]) %>
+    <%= f.submit "Select Track" %>
+  <% end %>
 <% end %>
