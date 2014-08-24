@@ -11,6 +11,20 @@ class PlaylistsController < ApplicationController
   def add
     track_id = params["playlist"]["track_id"]
     playlist_id = params["playlist"]["playlist_id"]
-    PlaylistsTrack.create(playlist_id:track_id,track_id:playlist_id)
+    track = Track.find_by_id(track_id)
+    track.playlist_id = playlist_id
+    last_place = Playlist.find(playlist_id).tracks.order('place ASC').last.place
+    if last_place == nil
+      track.place = 1
+    else
+      track.place = last_place + 1
+    end
+    track.save
+    redirect_to(playlist_path(playlist_id))
+  end
+
+  def show
+    playlist_id = params["id"]
+
   end
 end
