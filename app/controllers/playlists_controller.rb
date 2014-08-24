@@ -25,6 +25,7 @@ class PlaylistsController < ApplicationController
 
   def show
     playlist_id = params["id"]
-
+    @playlist = Playlist.find(playlist_id)
+    @ordered_tracks = Playlist.find(playlist_id).tracks.order('place ASC')
   end
 end

@@ -1,1 +1,9 @@
-<h1>show page :D</h1>
+<h1>show page for playlist:</h1>
+<h2><%= @playlist.title %></h2>
+<% @ordered_tracks.each do |track| %>
+  <p><%= track.place %></p>
+  <p><%= track.artist %></p>
+  <p><%= track.title %></p>
+  <p><%= track.album %></p>
+  <p><%= track.full %></p>
+<% end %>
