@@ -28,8 +28,13 @@ ActiveRecord::Schema.define(:version => 20140822202031) do
   end
 
   create_table "tracks", :force => true do |t|
-    t.integer  "popularity"
-    t.integer  "duration"
+    t.string   "pop"
+    t.string   "length"
+    t.string   "date"
+    t.string   "artist"
+    t.string   "title"
+    t.string   "full"
+    t.string   "album"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

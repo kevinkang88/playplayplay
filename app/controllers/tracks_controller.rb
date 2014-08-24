@@ -12,17 +12,19 @@ class TracksController < ApplicationController
   end
 
   def create
-    require 'pry';binding.pry
+    track_info = params["track"]
+    Track.create(
+      title: track_info["title"],
+      date: track_info["date"],
+      artist: track_info["artist"],
+      album: track_info["album"],
+      length: track_info["length"],
+      pop: track_info["pop"],
+      full: track_info["full"],
+    )
+    redirect_to(playlists_path)
   end
 
 end
 
 
-params["track"] =
-=> {"title"=>"Sexy Bitch (feat. Akon)",
- "date"=>"2009",
- "artist"=>"David Guetta",
- "album"=>"Sexy Bitch",
- "length"=>"195.853",
- "pop"=>"0.74",
- "full"=>"https://play.spotify.com/track/28O4PwkH8bzARStxeL4pxL"}
