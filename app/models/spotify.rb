@@ -25,6 +25,7 @@ class Spotify < ActiveResource::Base
     tracks_infos = []
     tracks_ary.each do |track|
       track_data = {}
+      track_data['title'] = track['name']
       track_data['album'] = track['album']['name']
       track_data['date'] = track['album']['released']
       track_data['pop'] = track['popularity']
