@@ -30,6 +30,36 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
-
+    playlist_id = params['id']
+    @playlist = Playlist.find(playlist_id)
+    @ordered_tracks = Playlist.find(playlist_id).tracks.order('place ASC')
   end
+
+  def update
+    playlist_id = params['playlist']['id']
+    updated_title = params['playlist']['title']
+    updated_order = params["playlist"].select{|k,v| k.match(/place/)}.values
+    # update playlist title
+    playlist = Playlist.find(playlist_id)
+    playlist.title = updated_title
+    playlist.save
+    # update track order
+    current_ordered_list = Playlist.find(playlist_id).tracks.order('place ASC')
+    i = 0
+    current_ordered_list.each do |track|
+      track.place = updated_order[i]
+      track.save
+      i += 1
+    end
+    redirect_to(playlist_path(playlist_id))
+  end
+
 end
+
+
+
+
+
+# {"title"=>"study music mix", "place1"=>"7", "place2"=>"2", "place3"=>"3", "place4"=>"4", "place5"=>"5", "place6"=>"6", "place7"=>"1"}, "commit"=>"Edit Playlist"}
+
+# params["playlist"].select{|k,v| k.match(/place/)}.values
