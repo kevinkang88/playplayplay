@@ -1,0 +1,10 @@
+<h1>show page for playlist:</h1>
+<h2><%= @playlist.title %></h2>
+<%= link_to("edit",edit_playlist_path(@playlist.id)) %>
+<% @ordered_tracks.each do |track| %>
+  <p><%= track.place %></p>
+  <p><%= track.artist %></p>
+  <p><%= track.title %></p>
+  <p><%= track.album %></p>
+  <p><%= track.full %></p>
+<% end %>

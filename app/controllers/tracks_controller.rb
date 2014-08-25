@@ -13,7 +13,7 @@ class TracksController < ApplicationController
 
   def create
     track_info = params["track"]
-    Track.create(
+    @track = Track.create(
       title: track_info["title"],
       date: track_info["date"],
       artist: track_info["artist"],
@@ -22,7 +22,7 @@ class TracksController < ApplicationController
       pop: track_info["pop"],
       full: track_info["full"],
     )
-    redirect_to(playlists_path)
+    redirect_to(playlists_path(track_id:@track))
   end
 
 end
