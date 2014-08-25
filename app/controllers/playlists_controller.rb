@@ -5,8 +5,8 @@ class PlaylistsController < ApplicationController
     @track_id = params["track_id"]
     @all_playlists = Playlist.all
     @user_playlists = User.find(current_user.id).playlists
-    # "track_id"=>"7", "action"=>"index", "controller"=>"playlists"}
   end
+
   # adds track to the playlist
   def add
     track_id = params["playlist"]["track_id"]
@@ -20,12 +20,15 @@ class PlaylistsController < ApplicationController
       track.place = last_place.place + 1
     end
     track.save
+    # code below recalculates coolness everytime track is added
     redirect_to(playlist_path(playlist_id))
   end
 
   def show
     playlist_id = params["id"]
     @playlist = Playlist.find(playlist_id)
+    @playlist.coolness = @playlist.coolness_calculator
+    @playlist.save
     @ordered_tracks = Playlist.find(playlist_id).tracks.order('place ASC')
   end
 
@@ -55,11 +58,3 @@ class PlaylistsController < ApplicationController
   end
 
 end
-
-
-
-
-
-# {"title"=>"study music mix", "place1"=>"7", "place2"=>"2", "place3"=>"3", "place4"=>"4", "place5"=>"5", "place6"=>"6", "place7"=>"1"}, "commit"=>"Edit Playlist"}
-
-# params["playlist"].select{|k,v| k.match(/place/)}.values

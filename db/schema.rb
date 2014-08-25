@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20140822184729) do
   create_table "playlists", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
+    t.decimal  "coolness"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

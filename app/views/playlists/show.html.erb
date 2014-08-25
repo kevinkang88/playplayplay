@@ -1,5 +1,6 @@
 <h1>show page for playlist:</h1>
 <h2><%= @playlist.title %></h2>
+<h3><%= @playlist.coolness %></h3>
 <%= link_to("edit",edit_playlist_path(@playlist.id)) %>
 <% @ordered_tracks.each do |track| %>
   <p><%= track.place %></p>
