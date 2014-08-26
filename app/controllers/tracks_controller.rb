@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :auth_user
 
   def search
 

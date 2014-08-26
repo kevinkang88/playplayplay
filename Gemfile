@@ -4,6 +4,8 @@ gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'therubyracer'  # If using Ruby
+gem 'less-rails-bootstrap'
 gem 'rest-client'
 gem 'activeresource'
 gem 'activerecord'

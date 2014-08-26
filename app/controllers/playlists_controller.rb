@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :auth_user
 
   def index
     @track_id = params["track_id"]
