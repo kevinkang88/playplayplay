@@ -24,6 +24,9 @@
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
+
+body {
+}
 /* Navigation */
 #nav-logo {
   margin-top: -7px;
@@ -38,9 +41,23 @@
   padding: 0 5px;
 }
 
+.navbar-cust {
+  z-index: 100000;
+  position: absolute;
+}
 /**/
 
 /* Main Page Sections */
+
+.logo-main-section{
+  margin-top: -0.0em;
+
+}
+
+.cool-main-section {
+  position: relative;
+  z-index: -10;
+}
 
 #logo-img-main{
 
@@ -65,3 +82,12 @@
 #sign-up-btn {
   font-size: 11px;
 }
+
+.how-main-section{
+  background-color: #4bbfc3;
+}
+
+#slide2{
+  background-color: #4bbfc3;
+}
+
