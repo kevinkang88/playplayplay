@@ -51,6 +51,7 @@ body {
 
 .logo-main-section{
   margin-top: -0.0em;
+  background-color: #DBDBDB;
 
 }
 
@@ -84,7 +85,8 @@ body {
 }
 
 .how-main-section{
-  background-color: #4bbfc3;
+  background-image: url('worn_dots.png');
+  /*background-repeat: repeat-y;*/
 }
 
 #slide2{
