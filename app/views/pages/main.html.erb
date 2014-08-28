@@ -12,5 +12,21 @@
     <div class="section how-main-section" data-anchor="slide2">
       <img src="/assets/howto.png" class="img-responsive" alt="howto page" id="howto-img-main">
     </div>
-    <div class="section" data-anchor="sign-up-slide" data-anchor="slide3">SIGN UP</div>
+
+    <div class="section signup-main-section" data-anchor="sign-up-slide" data-anchor="slide3">
+      <div id="cust">
+        <div class="placeholder-box"></div>
+        <div id="sign-up-box">
+          <div id="sign-up-form">
+            <br><br>
+            <%= form_tag(user_registration_path,{:class => ''}) do %>
+              <%= email_field_tag("user[email]",nil,{:class => "span3", :placeholder => 'Email'}) %>
+              <%= password_field_tag("user[password]",nil,{:class => "span3", :placeholder => 'Password'})%>
+              <%= password_field_tag("user[password_confirmation]",nil,{:class => "span3", :placeholder => 'Password Confirm'})%>
+              <%= submit_tag("Sign Up",{:class => "btn btn-default btn-lg", :id => "signup-btn"}) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
