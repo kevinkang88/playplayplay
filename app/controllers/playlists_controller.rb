@@ -5,6 +5,10 @@ class PlaylistsController < ApplicationController
     @track_id = params["track_id"]
     @all_playlists = Playlist.all
     @user_playlists = User.find(current_user.id).playlists
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # adds track to the playlist
