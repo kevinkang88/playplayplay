@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#fullpage').fullpage({
-      resize : false
+      resize : false,
+      anchors: ["slide1", 'slide2', 'slide3']
     });
 });

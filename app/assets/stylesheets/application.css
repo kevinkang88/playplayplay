@@ -10,10 +10,23 @@
  *
  *= require_self
  *= require twitter/bootstrap
+ *= require bootstrap.min
 
  *= require_tree .
  */
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+body {
+}
 /* Navigation */
 #nav-logo {
   margin-top: -7px;
@@ -25,7 +38,87 @@
   width: auto;
   height: 20px;
   font-size: 10px;
-  padding: 0;
+  padding: 0 5px;
 }
 
+.navbar-cust {
+  z-index: 100000;
+  position: absolute;
+}
 /**/
+
+/* Main Page Sections */
+
+.logo-main-section{
+  margin-top: -0.0em;
+  background-color: #DBDBDB;
+
+}
+
+.cool-main-section {
+  position: relative;
+  z-index: -10;
+}
+
+#logo-img-main{
+
+}
+
+.su-short-cut {
+
+}
+
+#short-cut-btn {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: -30%;
+  opacity: 0.7;
+}
+
+#short-cut-btn a {
+  color: black;
+}
+
+#sign-up-btn {
+  font-size: 11px;
+}
+
+.how-main-section{
+  background-image: url('worn_dots.png');
+  /*background-repeat: repeat-y;*/
+}
+
+#slide2{
+  background-color: #4bbfc3;
+}
+
+.signup-main-section {
+}
+
+#cust {
+  width: 100%;
+  height: 100%;
+  background-image: url('shatter.png');
+  background-repeat:repeat;
+}
+
+#sign-up-box {
+  border-radius: 10%;
+  margin: 0 auto 0 auto;
+  width: 250px;
+  height: 300px;
+  z-index: 10000000000000;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.placeholder-box {
+  height: 150px;
+}
+
+#sign-up-form {
+  margin: 0 auto;
+  padding-right: 5%;
+  padding-left: 5%;
+}
