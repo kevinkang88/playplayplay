@@ -1,21 +1,26 @@
-<p>hi i am results page</p>
-<% @results.each do |track| %>
+<div class="holder"></div>
+<div id="results-container">
   <ul>
-    <li>
-      <span><%= track["date"] %></span> **
-      <span><%= track["title"] %></span> **
-      <span><%= track["artist"] %></span> **
-      <span><%= track["album"] %></span> **
-    </li>
+
+    <% @results.each do |track| %>
+      <li class="track-result">
+        <span><%= track["date"] %></span> **
+        <span><%= track["title"] %></span> **
+        <span><%= track["artist"] %></span> **
+        <span><%= track["album"] %></span> **
+
+
+        <%= form_for :track, url: {action: 'create'} do |f| %>
+          <%= f.hidden_field(:title,:value => track["title"]) %>
+          <%= f.hidden_field(:date,:value => track["date"]) %>
+          <%= f.hidden_field(:artist,:value => track["artist"]) %>
+          <%= f.hidden_field(:album,:value => track["album"]) %>
+          <%= f.hidden_field(:length,:value => track["length"]) %>
+          <%= f.hidden_field(:pop,:value => track["pop"]) %>
+          <%= f.hidden_field(:full,:value => track["full"]) %>
+          <%= f.submit "Select Track" %>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
-  <%= form_for :track, url: {action: 'create'} do |f| %>
-    <%= f.hidden_field(:title,:value => track["title"]) %>
-    <%= f.hidden_field(:date,:value => track["date"]) %>
-    <%= f.hidden_field(:artist,:value => track["artist"]) %>
-    <%= f.hidden_field(:album,:value => track["album"]) %>
-    <%= f.hidden_field(:length,:value => track["length"]) %>
-    <%= f.hidden_field(:pop,:value => track["pop"]) %>
-    <%= f.hidden_field(:full,:value => track["full"]) %>
-    <%= f.submit "Select Track" %>
-  <% end %>
-<% end %>
+</div>

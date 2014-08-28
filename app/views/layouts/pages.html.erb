@@ -48,7 +48,14 @@
   <%= javascript_include_tag "jquery.fullPage" %>
   <!-- bootstraps below -->
   <%= javascript_include_tag "bootstrap.min" %>
-
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        resize : false,
+        anchors: ["slide1", 'slide2', 'slide3']
+      });
+    });
+  </script>
 
 </body>
 </html>
