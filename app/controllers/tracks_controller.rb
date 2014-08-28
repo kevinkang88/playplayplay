@@ -2,7 +2,10 @@ class TracksController < ApplicationController
   before_filter :auth_user
 
   def search
-
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def result
