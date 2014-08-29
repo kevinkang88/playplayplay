@@ -1,9 +1,10 @@
 <div class="holder"></div>
 <div id="results-container">
-  <ul>
+<div class="pagination"></div>
+  <div>
 
     <% @results.each do |track| %>
-      <li class="track-result">
+      <div class="track-result">
         <span><%= track["date"] %></span> **
         <span><%= track["title"] %></span> **
         <span><%= track["artist"] %></span> **
@@ -20,7 +21,14 @@
           <%= f.hidden_field(:full,:value => track["full"]) %>
           <%= f.submit "Select Track" %>
         <% end %>
-      </li>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
+
+
+<script type="text/javascript">
+  $(".pagination").customPaginate({
+      itemsToPaginate : ".track-result"
+    });
+</script>
