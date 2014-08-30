@@ -20,7 +20,7 @@
         <td><%= track["album"] %></td>
 
         <td>
-        <%= form_tag tracks_path do  %>
+        <%= form_tag(tracks_path, remote: true) do  %>
           <%= hidden_field_tag(:title,track["title"]) %>
           <%= hidden_field_tag(:date,track["date"]) %>
           <%= hidden_field_tag(:artist, track["artist"]) %>
