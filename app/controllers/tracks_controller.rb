@@ -1,5 +1,4 @@
 class TracksController < ApplicationController
-  before_filter :auth_user
 
   def search
     respond_to do |format|
@@ -15,15 +14,14 @@ class TracksController < ApplicationController
   end
 
   def create
-    track_info = params["track"]
     @track = Track.create(
-      title: track_info["title"],
-      date: track_info["date"],
-      artist: track_info["artist"],
-      album: track_info["album"],
-      length: track_info["length"],
-      pop: track_info["pop"],
-      full: track_info["full"],
+      title: params["title"],
+      date: params["date"],
+      artist: params["artist"],
+      album: params["album"],
+      length: params["length"],
+      pop: params["pop"],
+      full: params["full"],
     )
     redirect_to(playlists_path(track_id:@track))
   end
