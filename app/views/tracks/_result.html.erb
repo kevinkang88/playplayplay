@@ -4,26 +4,36 @@
   </center>
   <div>
 
+      <table class="table table-striped table-hover table-responsive">
+      <tr>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>Options</th>
+      </tr>
     <% @results.each do |track| %>
-      <div class="track-result">
-        <span><%= track["date"] %></span> **
-        <span><%= track["title"] %></span> **
-        <span><%= track["artist"] %></span> **
-        <span><%= track["album"] %></span> **
+      <tr class="track-result">
+        <td><%= track["date"] %></td>
+        <td><%= track["title"] %></td>
+        <td><%= track["artist"] %></td>
+        <td><%= track["album"] %></td>
 
-
-        <%= form_for :track, url: {action: 'create'} do |f| %>
-          <%= f.hidden_field(:title,:value => track["title"]) %>
-          <%= f.hidden_field(:date,:value => track["date"]) %>
-          <%= f.hidden_field(:artist,:value => track["artist"]) %>
-          <%= f.hidden_field(:album,:value => track["album"]) %>
-          <%= f.hidden_field(:length,:value => track["length"]) %>
-          <%= f.hidden_field(:pop,:value => track["pop"]) %>
-          <%= f.hidden_field(:full,:value => track["full"]) %>
-          <%= f.submit "Select Track" %>
+        <td>
+        <%= form_tag tracks_path do  %>
+          <%= hidden_field_tag(:title,track["title"]) %>
+          <%= hidden_field_tag(:date,track["date"]) %>
+          <%= hidden_field_tag(:artist, track["artist"]) %>
+          <%= hidden_field_tag(:album, track["album"]) %>
+          <%= hidden_field_tag(:length,track["length"]) %>
+          <%= hidden_field_tag(:pop,track["pop"]) %>
+          <%= hidden_field_tag(:full,track["full"]) %>
+          <%= image_submit_tag("add.png", class: "add-btn",alt:"btn") %>
         <% end %>
-      </div>
+        </td>
+        </tr>
     <% end %>
+      </table>
   </div>
 </div>
 
