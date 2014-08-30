@@ -52,6 +52,7 @@ body {
 .navbar-cust {
   z-index: 100000;
   position: absolute;
+  margin-bottom: 0px;
 }
 /**/
 
