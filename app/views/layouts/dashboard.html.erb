@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat|Merriweather:400,300' rel='stylesheet' type='text/css'>
+
   <title>PLAYLTICS</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
 
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class='navbar navbar-default navbar-fixed-top' role="navigation">
-    <div class="container">
-      <div class='navbar-header'>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="/assets/pllogo.png" alt="small logo" id="nav-logo"></a>
-      </div><!-- closing header -->
-      <div class="collapse navbar-collapse navbar-cust" id="bs-example-navbar-collapse-1">
-        <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>. Not you?
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-        <% end %>
-      </div>
-    </div><!-- closing container -->
-  </div><!-- closing navbar  -->
+<body id="full">
+<!--  -->
+<div class="navbar-cust navbar navbar-inverse">
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand" href="/"><img src="/assets/pllogo2.png" alt="small logo" id="nav-logo"></a>
+    </div>
+    <div class="navbar-header pull-right">
+      <%= link_to (image_tag("/assets/sign-out2.png")), destroy_user_session_path, :method => :delete, id: "sign-out-btn", class: " navbar-btn" %>
+
+    </div>
+</div>
+
+
+
+
+
+
 
 
 <nav class="navbar navbar-lower">
     <div class="container">
       <div class="nav-collapse collase">
         <ul class="nav navbar-nav">
-          <li><%= link_to("Search",search_path,:remote => true) %></li>
-          <li><%= link_to("Playlist",playlists_path,:remote => true) %></li>
-          <li><a href="#">Chat</a></li>
+          <div id="test1"><li><%= link_to(image_tag("/assets/searchicon.png"),search_path,:remote => true) %></li></div>
+
+          <div id="test2"><li><%= link_to(image_tag("/assets/playlisticon.png"),search_path,:remote => true) %></li></div>
+          <div id="test3"><li><%= link_to(image_tag("/assets/chaticon.png"),search_path,:remote => true) %></li></div>
         </ul>
         </ul>
       </div>
@@ -57,6 +54,29 @@
   <%= javascript_include_tag "paginate" %>
   <%= javascript_include_tag "custom" %>
 
+  <script type="text/javascript">
+    $(document).ready(function() {
 
+      $('.navbar').css({'margin-bottom':'0px'});
+      $('#sign-out-btn img').on('mouseover',function(){
+        $('#sign-out-btn img').attr('src','/assets/sign-out.png');
+      });
+      $('#sign-out-btn img').on('mouseout',function(){
+        $('#sign-out-btn img').attr('src','/assets/sign-out2.png');
+      });
+    });
+      $('#test1 li img').on('mouseover',function(){
+        $('#test1 li img').attr('src','/assets/searchicon2.png');
+      })
+      $('#test1 li img').on('mouseout',function(){
+        $('#test1 li img').attr('src','/assets/searchicon.png');
+      })
+      $('#test2 li img').on('mouseover',function(){
+        $('#test2 li img').attr('src','/assets/playlisticon2.png');
+      })
+      $('#test2 li img').on('mouseout',function(){
+        $('#test2 li img').attr('src','/assets/playlisticon.png');
+      })
+  </script>
 </body>
 </html>

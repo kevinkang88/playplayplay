@@ -14,6 +14,10 @@
 
  *= require_tree .
  */
+nav {
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
 
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -26,6 +30,8 @@
 
 
 body {
+  width: 100%;
+  height: 100%;
 }
 /* Navigation */
 #nav-logo {
@@ -59,7 +65,8 @@ body {
 /* Main Page Sections */
 
 .logo-main-section{
-  background-color: #DBDBDB;
+    background: url('bgband.jpg') no-repeat center center fixed;
+  background-size: cover;
 
 }
 
@@ -159,7 +166,7 @@ body {
 }
 
 #signup-btn {
-  float: right;
+
 }
 
 
@@ -174,9 +181,11 @@ body {
 
 /* DashBoard Page */
 .navbar-lower {
-  margin-top: 50px;
-  background-color: #EDEDED;
+  /*margin-top: 50px;*/
+  background-color: white;
   height: 50px;
+  opacity: 0.3;
+  z-index: 1;
 }
 
 
@@ -187,5 +196,105 @@ body {
 #results-container {
   overflow: auto;
   height: 500px;
+}
+/**/
+
+
+/*this is for dashboard index*/
+#dashboard-all {
+  width: 100%;
+  height: 100%;
+
+}
+
+#full {
+  background: url('bgdash2.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+#header-db-box {
+  width: 50%;
+  /*background-color: red;*/
+  margin: 0 auto;
+}
+
+#header-db {
+  font-family: 'Merriweather', serif;
+  color:white;
+  font-weight: lighter;
+}
+
+#under-header-box{
+  width: 50%;
+  margin: 0 auto;
+}
+
+#under-header-db {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 120%;
+  color: white;
+  font-weight: lighter;
+  letter-spacing: 4px;
+}
+
+.show-stage {
+  background-color: white;
+  width: 100%;
+  height: 500px;
+  border-bottom: 1px solid gray;
+  opacity: 0.9;
+  overflow-y:auto;
+}
+
+#test1 {
+  padding-top: 2px;
+  height: 48px;
+  float: left;
+  margin-right: 8px;
+  z-index: 100000000;
+}
+
+#test1 img{
+  width: 50px;
+  height: auto;
+}
+
+#test1 li a {
+  height: 500%;
+}
+
+
+#test2 img{
+  width: 50px;
+  height: auto;
+}
+
+#test3 img{
+  width: 50px;
+  height: auto;
+}
+
+#test2 {
+  padding-top: 2px;
+  height: 48px;
+  float: left;
+
+  margin-right: 8px;
+  z-index: 100000000;
+
+}
+#test3 {
+  padding-top: 2px;
+  float: left;
+  height: 48px;
+
+  margin-right: 8px;
+  z-index: 100000000;
+}
+
+#sign-out-btn img{
+  width: 45px;
+  height: 45px;
+  margin-top: 5px;
 }
 /**/
