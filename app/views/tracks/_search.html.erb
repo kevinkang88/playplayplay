@@ -1,11 +1,22 @@
-<h1>this is search area</h1>
+<br><br><br>
+<center>
+  <%= form_tag(result_path,:method => "get", :remote => true,:class => "search-form") do %>
+    <%= text_field_tag 'Search',nil,placeholder: 'Search query here',id:'search-field' %>
+    <br>
 
-<%= form_tag(result_path,:method => "get", :remote => true) do %>
-  <%= text_field_tag 'Search',nil,placeholder: 'Enter your search query here' %>
+    <%= submit_tag 'Search', {id: "search-btn"} %>
+  <% end %>
 
-  <%= submit_tag 'Search' %>
-<% end %>
+</center>
 
 
 <div id="search-results-area">
 </div>
+
+
+<script type="text/javascript">
+      $('#search-btn').on('click',function(){
+        console.log("hi");
+        $('.search-form').hide(1000);
+      });
+</script>
