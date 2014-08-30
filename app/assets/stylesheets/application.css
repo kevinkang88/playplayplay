@@ -166,7 +166,7 @@ body {
 }
 
 #signup-btn {
-  float: right;
+
 }
 
 
@@ -242,40 +242,59 @@ body {
   width: 100%;
   height: 500px;
   border-bottom: 1px solid gray;
-  opacity: 0.2;
+  opacity: 0.9;
   overflow-y:auto;
 }
 
 #test1 {
   padding-top: 2px;
-  height: 50px;
+  height: 48px;
   float: left;
-  background-image: url('eye.png');
-  background-position: center bottom;
-  background-size: 100%;
   margin-right: 8px;
   z-index: 100000000;
 }
+
+#test1 img{
+  width: 50px;
+  height: auto;
+}
+
+#test1 li a {
+  height: 500%;
+}
+
+
+#test2 img{
+  width: 50px;
+  height: auto;
+}
+
+#test3 img{
+  width: 50px;
+  height: auto;
+}
+
 #test2 {
   padding-top: 2px;
-
-  height: 50px;
+  height: 48px;
   float: left;
-  background-image: url('playlist.png');
-  background-position: center bottom;
-  background-size: 100%;
+
+  margin-right: 8px;
+  z-index: 100000000;
+
+}
+#test3 {
+  padding-top: 2px;
+  float: left;
+  height: 48px;
+
   margin-right: 8px;
   z-index: 100000000;
 }
-#test3 {
-    padding-top: 2px;
 
-  float: left;
-  height: 50px;
-  background-image: url('chat.png');
-  background-position: center bottom;
-  background-size: 100%;
-  margin-right: 8px;
-  z-index: 100000000;
+#sign-out-btn img{
+  width: 45px;
+  height: 45px;
+  margin-top: 5px;
 }
 /**/
