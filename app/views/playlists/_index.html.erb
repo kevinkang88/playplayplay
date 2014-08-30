@@ -1,96 +1,63 @@
-<h1>playlists#index</h1>
-<h2>user playlists</h2>
-<% @user_playlists.each do |playlist| %>
-  <div>
-    <p><%= playlist.title %></p>
-    <% if @track_id %>
-      <!-- hidden form disguised as button -->
-      <%= form_for :playlist, url: {action: 'add'} do |f| %>
-        <%= f.hidden_field(:track_id,:value => @track_id) %>
-        <%= f.hidden_field(:playlist_id,:value => playlist.id) %>
-        <%= f.submit "add track to playlist" %>
+<div class="playlists-box">
+  <% if @track_id %>
+    <div class="row">
+      <div class="col-xs-6 col-md-6 col-lg-6">
+        <h1 class="page-header">Choose a playlist</h1>
+      </div>
+    </div>
+    <table class="table table-striped table-hover table-responsive">
+      <tr>
+        <th>Title</th>
+        <th>Coolness</th>
+        <th>Options</th>
+      </tr>
+      <% @user_playlists.each do |playlist| %>
+        <tr>
+          <td><%= playlist.title %></td>
+          <td><%= playlist.coolness %></td>
+          <td>
+            <%= form_for :playlist, url: {action: 'add'} do |f| %>
+              <%= f.hidden_field(:track_id,:value => @track_id) %>
+              <%= f.hidden_field(:playlist_id,:value => playlist.id) %>
+              <%= image_submit_tag("add.png", class: "add-btn",alt:"btn") %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
+  <% else %>
+  <div class="row">
+    <div class="col-xs-6 col-md-6 col-lg-6">
+      <h1 class="page-header">User Playlists</h1>
+    </div>
+  </div>
+
+  <center>
+  <div class="row">
+    <% @user_playlists.each do |playlist| %>
+      <%= link_to(playlist_path(playlist.id)) do %>
+        <div class="thumb">
+          <span class="pl-title"><%= playlist.title %></span>
+        </div>
       <% end %>
     <% end %>
   </div>
-<% end %>
+  </center>
 
-<h2>all playlists</h2>
-<% @all_playlists.each do |playlist| %>
-  <div>
-    <p><%= playlist.title %></p>
-  </div>
-<% end %>
-
-
-<div class="container">
   <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">User Playlist</h1>
-      </div>
+    <div class="col-xs-6 col-md-6 col-lg-6">
+      <h1 class="page-header">All Playlists</h1>
+    </div>
   </div>
+  <center>
+  <div class="row">
+    <% @all_playlists.each do |playlist| %>
+      <div class="thumb">
+        <span class="pl-title"><%= playlist.title %></span>
+      </div>
+    <% end %>
+  </div>
+  </center>
+  <% end %>
 </div>
-        <div class="row">
-
-
-
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-        </div>
