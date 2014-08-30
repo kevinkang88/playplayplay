@@ -37,8 +37,16 @@ body {
 #login-btn {
   width: auto;
   height: 20px;
-  font-size: 10px;
-  padding: 0 5px;
+  font-size: 8px;
+  padding: 0px 5px 10px 5px;
+  border:2px solid #ff2d81;
+  color:#f6f6f6;
+  background-color: #ff2d81;
+}
+
+#login-btn:hover {
+  color:white;
+
 }
 
 .navbar-cust {
