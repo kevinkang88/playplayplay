@@ -8,6 +8,7 @@
   <%= form_for :playlist, url: {action: 'update'} do |f| %>
   <center>
     <div>
+      <!-- edited title -->
       <%= f.text_field :title, { :value => @playlist.title } %><br><br>
     </div>
   </center>
@@ -19,7 +20,8 @@
   </div>
   <center>
     <div class="desc-edit">
-      <%= f.text_area :title, { :value => @playlist.description } %>
+      <!-- edited description -->
+      <%= f.text_area :description, { :value => @playlist.description } %>
     </div>
   </center>
     <%= f.hidden_field(:id,:value => @playlist.id) %>
@@ -42,6 +44,7 @@
         <% @ordered_tracks.each do |track| %>
           <tr>
             <td class="index"><%= track.place %></td>
+            <%= f.hidden_field("new_ord#{i}",{:value => track.place}) %>
             <td><%= track.title %></td>
             <td><%= track.artist %></td>
             <td><%=  %></td>
