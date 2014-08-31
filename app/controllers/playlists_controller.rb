@@ -60,7 +60,11 @@ class PlaylistsController < ApplicationController
       track.save
       i += 1
     end
-    redirect_to(dashboard_index_path)
   end
 
+  def destroy
+    playlist_id = params["id"].to_s
+    Playlist.find(playlist_id).destroy
+    redirect_to(dashboard_index_path)
+  end
 end

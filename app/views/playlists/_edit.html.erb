@@ -47,7 +47,12 @@
             <%= f.hidden_field("new_ord#{i}",{:value => track.place}) %>
             <td><%= track.title %></td>
             <td><%= track.artist %></td>
-            <td><%=  %></td>
+            <td>
+              <%= link_to track.full do %>
+                <%= image_tag("delete.png", :class => "delete-icon", :alt => "trashcan") %>
+              <% end %>
+            </td>
+
           </tr>
           <% i += 1 %>
         <% end %>
@@ -60,7 +65,7 @@
 
 
 </div>
-
+<!-- script for drag & drop -->
 <script type="text/javascript">
   var fixHelperModified = function(e, tr) {
       var $originals = tr.children();
