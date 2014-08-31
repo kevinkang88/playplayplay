@@ -1,5 +1,5 @@
 class Playlist < ActiveRecord::Base
-  attr_accessible :title, :body, :title, :user_id, :coolness
+  attr_accessible :title, :body, :title, :user_id, :coolness, :description
   has_many :tracks
 
   def coolness_calculator

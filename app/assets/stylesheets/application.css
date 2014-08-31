@@ -420,3 +420,28 @@ body {
   bottom:0;
 }
 /**/
+
+/* Playlist show page */
+
+.show-heading {
+  width: 35%;
+  min-width: 350px;
+  margin: 0 auto;
+  padding-top: 15px ;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+}
+
+.playlist-title {
+  font-size: 22px;
+  font-family: 'Merriweather', serif;
+
+}
+
+.playlist-dsc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color:#666666;
+  font-weight: lighter;
+}
+/**/

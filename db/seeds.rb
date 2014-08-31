@@ -13,13 +13,10 @@ puts "-------------------Done---------------"
 
 puts "--------------------------------------"
 puts "--------Creating Playlists------------"
-Playlist.create(user_id:1,title:"chill out time")
-Playlist.create(user_id:1,title:"study music mix")
+Playlist.create(user_id:1,title:"chill out time",description: "This playlist was made to enjoy while at the beach on cool summer nights.")
+Playlist.create(user_id:1,title:"study music mix", description: "This playlist is composed mostly of classical music to help me focus while studying. Having no lyrics in my music while I study is a must")
 puts "-------------------Done---------------"
 
 puts "--------------------------------------"
 puts "--------Creating Tracks---------------"
-Track.create(playlist_id: 1, pop: "0.5", length: "90", date: "2014", artist: "test1", title: "test title1", full: "test1url", album: "test album1", place: 1,)
-Track.create(playlist_id: 1, pop: "0.5", length: "90", date: "2014", artist: "test2", title: "test title2", full: "test2url", album: "test album2", place: 2,)
-Track.create(playlist_id: 1, pop: "0.5", length: "90", date: "2014", artist: "test3", title: "test title3", full: "test3url", album: "test album3", place: 3,)
 puts "-------------------Done---------------"
