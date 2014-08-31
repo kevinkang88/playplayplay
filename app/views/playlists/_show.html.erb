@@ -9,7 +9,7 @@
     <h3 id="chart-smry">This playlist received <%= @playlist.coolness %> cool pts</h3>
   </center>
   <br>
-  <%= link_to("edit",edit_playlist_path(@playlist.id)) %>
+  <%= link_to("edit",edit_playlist_path(@playlist.id),:remote => true) %> &nbsp;
   <br><br>
   <table class="table table-responsive table-cust">
     <tr>
@@ -31,10 +31,13 @@
         <% end %>
       </td>
     </tr>
-
-
     <% end %>
+
+
   </table>
+  <center>
+    <%= button_to "delete", @playlist, :method=>:delete, :class=>:destroy %>
+  </center>
 </div><!-- show box close -->
 
 

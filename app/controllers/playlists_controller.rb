@@ -42,22 +42,64 @@ class PlaylistsController < ApplicationController
   end
 
   def update
-    playlist_id = params['playlist']['id']
-    updated_title = params['playlist']['title']
-    updated_order = params["playlist"].select{|k,v| k.match(/place/)}.values
-    # update playlist title
-    playlist = Playlist.find(playlist_id)
-    playlist.title = updated_title
-    playlist.save
-    # update track order
-    current_ordered_list = Playlist.find(playlist_id).tracks.order('place ASC')
-    i = 0
-    current_ordered_list.each do |track|
-      track.place = updated_order[i]
-      track.save
-      i += 1
+    if params["commit"] == "Edit Playlist"
+      current_ordered_list = Playlist.find(params["id"]).tracks.order('place ASC')
+      updated_order = params.select{|k,v|k.match(/og_ord/)}.values.map(&:to_i)
+      current_ordered_list.each_with_index do |track,i|
+        if !updated_order.include?(track.place)
+          Track.find(track.id).destroy
+        end
+      end
+      i = 1
+      updated_order.each do |og_place|
+        track = current_ordered_list[og_place - 1]
+        track.place = i
+        track.save
+        i += 1
     end
-    redirect_to(playlist_path(playlist_id))
+    redirect_to(dashboard_index_path)
+
+    else
+
+      track_id = params["playlist"]["track_id"]
+      playlist_id = params["playlist"]["playlist_id"]
+      track = Track.find_by_id(track_id)
+      track.playlist_id = playlist_id
+      last_place = Playlist.find(playlist_id).tracks.order('place ASC').last
+      if last_place == nil
+        track.place = 1
+      else
+        track.place = last_place.place + 1
+      end
+      track.save
+      # code below recalculates coolness everytime track is added
+      redirect_to(playlist_path(playlist_id))
+    end
   end
+
+  def destroy
+    if params["commit"] == "Edit Playlist"
+      current_ordered_list = Playlist.find(params["id"]).tracks.order('place ASC')
+      updated_order = params.select{|k,v|k.match(/og_ord/)}.values.map(&:to_i)
+      current_ordered_list.each_with_index do |track,i|
+        if !updated_order.include?(track.place)
+          Track.find(track.id).destroy
+        end
+      end
+      i = 1
+      updated_order.each do |og_place|
+        track = current_ordered_list[og_place - 1]
+        track.place = i
+        track.save
+        i += 1
+      end
+      redirect_to(dashboard_index_path)
+    else
+      playlist_id = params["id"].to_s
+      Playlist.find(playlist_id).destroy
+      redirect_to(dashboard_index_path)
+    end
+  end
+
 
 end

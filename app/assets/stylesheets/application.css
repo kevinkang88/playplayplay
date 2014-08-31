@@ -472,4 +472,49 @@ body {
   height: 30px;
   margin-top: -7px;
 }
+
+.destroy {
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+  width: 100%;
+  padding: 0 30%;
+  background-color: #D91C5B;
+  border-radius: 3%;
+  border: 0;
+  text-align: center;
+}
 /**/
+
+/* Edit area */
+
+.edit-box {
+  margin-top: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-bottom: 20%;
+}
+
+.desc-edit textarea {
+  height: 175px;
+}
+
+.delete-icon {
+  width: 30px;
+  height: 30px;
+  margin-top: -7px;
+}
+
+.edit-btn {
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+  width: 100%;
+  padding: 0 30%;
+  background-color: #D91C5B;
+  border-radius: 3%;
+  border: 0;
+  text-align: center;
+}
+/**/
+
+

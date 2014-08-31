@@ -26,6 +26,15 @@ class TracksController < ApplicationController
     redirect_to(playlists_path(track_id:@track))
   end
 
+  def destroy
+    require 'pry';binding.pry
+  end
+
+  def update
+    track_id = params["id"].to_s
+    Tracks.find(playlist_id).destroy
+    redirect_to(dashboard_index_path)
+  end
 end
 
 
