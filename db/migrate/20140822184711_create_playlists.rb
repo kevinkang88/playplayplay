@@ -3,7 +3,8 @@ class CreatePlaylists < ActiveRecord::Migration
     create_table :playlists do |t|
       t.belongs_to :user
       t.string :title
-      t.decimal :coolness
+      t.text :description
+      t.integer :coolness
       t.timestamps
     end
   end

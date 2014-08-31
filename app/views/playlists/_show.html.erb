@@ -1,0 +1,71 @@
+<div class="show-box">
+  <br><br><br>
+  <div class="show-heading">
+    <p class="playlist-title"><%= @playlist.title %></p>
+    <p class="playlist-dsc"><%= @playlist.description %></p>
+  </div><br><br>
+  <center>
+    <canvas id="myChart" width="300px" height="300px"></canvas><br>
+    <h3 id="chart-smry">This playlist received <%= @playlist.coolness %> cool pts</h3>
+  </center>
+  <br>
+  <%= link_to("edit",edit_playlist_path(@playlist.id)) %>
+  <br><br>
+  <table class="table table-responsive table-cust">
+    <tr>
+      <th>Track No.</th>
+      <th>Artist</th>
+      <th>Title</th>
+      <th>Album</th>
+      <th>Options</th>
+    </tr>
+    <% @ordered_tracks.each do |track| %>
+    <tr>
+      <td><p><%= track.place %></p></td>
+      <td><p><%= track.artist %></p></td>
+      <td><p><%= track.title %></p></td>
+      <td><p><%= track.album %></p></td>
+      <td>
+        <%= link_to track.full, :target => "_blank" do %>
+          <%= image_tag("spotify.png", :class => "spotify_icon", :alt => "spotify") %>
+        <% end %>
+      </td>
+    </tr>
+
+
+    <% end %>
+  </table>
+</div><!-- show box close -->
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var cool = $('h3').html().match(/\d+/)[0];
+    var data = [
+        {
+          value: 40,
+          color:"#F7464A",
+          highlight: "#FF5A5E",
+          label: "Cool"
+        },
+        {
+          value: 60,
+          color: "#46BFBD",
+          highlight: "#5AD3D1",
+          label: "Lame"
+        }
+      ]
+    data[0].value = parseInt(cool) ;
+    var lame = 100 - parseInt(cool);
+    data[1].value = lame ;
+
+    var myPieChart = new Chart(ctx).Pie(data);
+
+  });
+
+</script>

@@ -30,7 +30,7 @@ class PlaylistsController < ApplicationController
   def show
     playlist_id = params["id"]
     @playlist = Playlist.find(playlist_id)
-    @playlist.coolness = @playlist.coolness_calculator
+    @playlist.coolness = (@playlist.coolness_calculator * 100 ).to_i
     @playlist.save
     @ordered_tracks = Playlist.find(playlist_id).tracks.order('place ASC')
   end

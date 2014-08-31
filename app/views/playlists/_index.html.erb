@@ -1,4 +1,5 @@
 <div class="playlists-box">
+  <!-- This is if User is adding a track to playlist -->
   <% if @track_id %>
     <div class="row">
       <div class="col-xs-6 col-md-6 col-lg-6">
@@ -16,7 +17,7 @@
           <td><%= playlist.title %></td>
           <td><%= playlist.coolness %></td>
           <td>
-            <%= form_for :playlist, url: {action: 'add'} do |f| %>
+            <%= form_for :playlist, url: {action: 'add'}, :remote => true  do |f| %>
               <%= f.hidden_field(:track_id,:value => @track_id) %>
               <%= f.hidden_field(:playlist_id,:value => playlist.id) %>
               <%= image_submit_tag("add.png", class: "add-btn",alt:"btn") %>
@@ -24,8 +25,8 @@
           </td>
         </tr>
       <% end %>
-
     </table>
+    <!-- This is when User is viewing the playlist -->
   <% else %>
   <div class="row">
     <div class="col-xs-6 col-md-6 col-lg-6">
@@ -36,7 +37,7 @@
   <center>
   <div class="row">
     <% @user_playlists.each do |playlist| %>
-      <%= link_to(playlist_path(playlist.id)) do %>
+      <%= link_to(playlist_path(playlist.id),:remote => true) do %>
         <div class="thumb">
           <span class="pl-title"><%= playlist.title %></span>
         </div>
@@ -53,9 +54,11 @@
   <center>
   <div class="row">
     <% @all_playlists.each do |playlist| %>
-      <div class="thumb">
-        <span class="pl-title"><%= playlist.title %></span>
-      </div>
+      <%= link_to(playlist_path(playlist.id),:remote => true) do %>
+        <div class="thumb">
+          <span class="pl-title"><%= playlist.title %></span>
+        </div>
+      <% end %>
     <% end %>
   </div>
   </center>
