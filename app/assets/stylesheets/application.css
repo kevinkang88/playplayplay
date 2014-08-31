@@ -495,7 +495,7 @@ body {
   padding-bottom: 20%;
 }
 
-textarea#playlist_title {
+.desc-edit textarea {
   height: 175px;
 }
 

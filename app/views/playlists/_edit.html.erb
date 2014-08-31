@@ -5,11 +5,12 @@
       <h1 class="page-header">Playlist Title</h1>
     </div>
   </div>
-  <%= form_for :playlist, url: {action: 'update'} do |f| %>
+
+  <%= form_tag({:controller => "playlists", :action => "update"}, {:method => "post"}) do %>
   <center>
     <div>
       <!-- edited title -->
-      <%= f.text_field :title, { :value => @playlist.title } %><br><br>
+      <%= text_field_tag 'title', @playlist.title %><br><br>
     </div>
   </center>
   <!-- edit description -->
@@ -21,11 +22,11 @@
   <center>
     <div class="desc-edit">
       <!-- edited description -->
-      <%= f.text_area :description, { :value => @playlist.description } %>
+      <%= text_area_tag 'description', @playlist.description %>
     </div>
   </center>
-    <%= f.hidden_field(:id,:value => @playlist.id) %>
-    <% i = 0 %>
+    <%= hidden_field_tag('id', @playlist.id) %>
+    <% i = 1 %>
   <div class="row">
     <div class="col-xs-6 col-md-6 col-lg-6">
         <h1 class="page-header">Edit Tracks (Drag-Drop / Options)</h1>
@@ -44,12 +45,12 @@
         <% @ordered_tracks.each do |track| %>
           <tr>
             <td class="index"><%= track.place %></td>
-            <%= f.hidden_field("new_ord#{i}",{:value => track.place}) %>
+            <%= hidden_field_tag("og_ord#{i}",track.place) %>
             <td><%= track.title %></td>
             <td><%= track.artist %></td>
             <td>
-              <%= link_to track.full do %>
-                <%= image_tag("delete.png", :class => "delete-icon", :alt => "trashcan") %>
+              <%= form_tag("/tracks/#{track.id}", method: "delete") do %>
+                <%= image_submit_tag("delete.png",:class => "delete-icon") %>
               <% end %>
             </td>
 
@@ -58,31 +59,52 @@
         <% end %>
       </tbody>
    </table>
-    <%= f.submit 'Edit Playlist' %>
+    <%= submit_tag 'Edit Playlist' %>
   <% end %>
-
-
-
-
 </div>
-<!-- script for drag & drop -->
-<script type="text/javascript">
-  var fixHelperModified = function(e, tr) {
-      var $originals = tr.children();
-      var $helper = tr.clone();
-      $helper.children().each(function(index) {
-          $(this).width($originals.eq(index).width())
-      });
-      return $helper;
-  },
-      updateIndex = function(e, ui) {
-          $('td.index', ui.item.parent()).each(function (i) {
-              $(this).html(i + 1);
-          });
-      };
 
-  $("#sort tbody").sortable({
-      helper: fixHelperModified,
-      stop: updateIndex
-  }).disableSelection();
+
+
+
+
+
+<!-- script for drag & drop -->
+<!-- script for trashcan btn -->
+
+<script type="text/javascript">
+
+  var dragDrop = function(){
+     var fixHelperModified = function(e, tr) {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+        $helper.children().each(function(index) {
+            $(this).width($originals.eq(index).width())
+        });
+        return $helper;
+    },
+        updateIndex = function(e, ui) {
+            $('td.index', ui.item.parent()).each(function (i) {
+                $(this).html(i + 1);
+            });
+        };
+
+    $("#sort tbody").sortable({
+        helper: fixHelperModified,
+        stop: updateIndex
+    }).disableSelection();
+  };
+
+
+  var trashRow = function(){
+    $('.delete-icon').on('click',function(evt){
+      evt.preventDefault();
+      $(this).closest('tr').remove();
+    });
+  }
+
+  $(document).ready(function(){
+    dragDrop();
+    trashRow();
+  });
+
 </script>
