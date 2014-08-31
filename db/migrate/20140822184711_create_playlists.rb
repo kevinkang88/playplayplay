@@ -4,7 +4,7 @@ class CreatePlaylists < ActiveRecord::Migration
       t.belongs_to :user
       t.string :title
       t.text :description
-      t.decimal :coolness
+      t.integer :coolness
       t.timestamps
     end
   end
