@@ -5,18 +5,41 @@
     <p class="playlist-dsc"><%= @playlist.description %></p>
   </div><br><br>
   <center>
-  <canvas id="myChart" width="300px" height="300px"></canvas><br>
-  <h3 id="chart-smry">This playlist received <%= @playlist.coolness %> cool pts</h3>
+    <canvas id="myChart" width="300px" height="300px"></canvas><br>
+    <h3 id="chart-smry">This playlist received <%= @playlist.coolness %> cool pts</h3>
   </center>
+  <br>
   <%= link_to("edit",edit_playlist_path(@playlist.id)) %>
-  <% @ordered_tracks.each do |track| %>
-    <p><%= track.place %></p>
-    <p><%= track.artist %></p>
-    <p><%= track.title %></p>
-    <p><%= track.album %></p>
-    <p><%= track.full %></p>
-  <% end %>
-</div>
+  <br><br>
+  <table class="table table-responsive table-cust">
+    <tr>
+      <th>Track No.</th>
+      <th>Artist</th>
+      <th>Title</th>
+      <th>Album</th>
+      <th>Options</th>
+    </tr>
+    <% @ordered_tracks.each do |track| %>
+    <tr>
+      <td><p><%= track.place %></p></td>
+      <td><p><%= track.artist %></p></td>
+      <td><p><%= track.title %></p></td>
+      <td><p><%= track.album %></p></td>
+      <td>
+        <%= link_to track.full, :target => "_blank" do %>
+          <%= image_tag("spotify.png", :class => "spotify_icon", :alt => "spotify") %>
+        <% end %>
+      </td>
+    </tr>
+
+
+    <% end %>
+  </table>
+</div><!-- show box close -->
+
+
+
+
 
 <script type="text/javascript">
   $(document).ready(function(){

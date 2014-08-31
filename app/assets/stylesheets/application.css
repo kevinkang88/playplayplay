@@ -449,6 +449,8 @@ body {
   overflow-y:auto;
   height: 100%;
   padding-bottom: 50%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 #chart-smry {
@@ -456,5 +458,18 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     letter-spacing: 2px;
+}
+
+
+.table-cust {
+  font-weight: lighter;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 13px;
+}
+
+.spotify_icon {
+  width: 30px;
+  height: 30px;
+  margin-top: -7px;
 }
 /**/
