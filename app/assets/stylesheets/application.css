@@ -473,3 +473,18 @@ body {
   margin-top: -7px;
 }
 /**/
+
+/* Edit area */
+
+.edit-box {
+  margin-top: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-bottom: 20%;
+}
+
+textarea#playlist_title {
+  height: 175px;
+}
+
+/**/
