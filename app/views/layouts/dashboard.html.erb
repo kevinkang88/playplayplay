@@ -5,28 +5,20 @@
   <title>PLAYLTICS</title>
   <%= stylesheet_link_tag "jquery-ui", :media => 'all' %>
   <%= stylesheet_link_tag "application", :media => "all" %>
-
-
   <%= csrf_meta_tags %>
 </head>
 <body id="full">
-<!--  -->
+<!-- Top Nav Bar -->
 <div class="navbar-cust navbar navbar-inverse">
     <div class="navbar-header pull-left">
       <a class="navbar-brand" href="/"><img src="/assets/pllogo2.png" alt="small logo" id="nav-logo"></a>
     </div>
     <div class="navbar-header pull-right">
       <%= link_to (image_tag("/assets/sign-out2.png")), destroy_user_session_path, :method => :delete, id: "sign-out-btn", class: " navbar-btn" %>
-
     </div>
 </div>
 
-
-
-
-
-
-
+<!-- Lower Nav Bar -->
 
 <nav class="navbar navbar-lower">
     <div class="container">
@@ -35,7 +27,7 @@
           <div id="test1"><li><%= link_to(image_tag("/assets/searchicon.png"),search_path,:remote => true) %></li></div>
 
           <div id="test2"><li><%= link_to(image_tag("/assets/playlisticon.png"),playlists_path,:remote => true) %></li></div>
-          <div id="test3"><li><%= link_to(image_tag("/assets/chaticon.png"),search_path,:remote => true) %></li></div>
+          <div id="test3"><li><%= link_to(image_tag("/assets/chaticon.png"),root_path,:remote => true) %></li></div>
         </ul>
         </ul>
       </div>

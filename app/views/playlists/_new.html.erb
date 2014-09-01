@@ -1,0 +1,37 @@
+<div class="new-pl-box">
+  <!-- edit title -->
+  <div class="row">
+    <div class="col-xs-6 col-md-6 col-lg-6">
+      <h1 class="page-header">Playlist Title</h1>
+    </div>
+  </div>
+
+  <%= form_tag({:controller => "playlists", :action => "create"}, {:method => "post"}) do %>
+    <center>
+      <div>
+        <!-- edited title -->
+        <%= text_field_tag 'title' %><br><br>
+      </div>
+    </center>
+    <!-- edit description -->
+    <div class="row">
+      <div class="col-xs-6 col-md-6 col-lg-6">
+          <h1 class="page-header">Playlist Description</h1>
+      </div>
+    </div>
+
+      <center>
+      <div class="new-desc-box">
+        <!-- edited title -->
+        <%= text_area_tag 'desc' %><br><br>
+      </div>
+    </center>
+    <center>
+    <%= submit_tag "Create", class: "create-pl-btn" %>
+    </center>
+  <% end %>
+
+
+
+
+</div>

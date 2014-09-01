@@ -10,6 +10,16 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def new
+
+  end
+
+  def create
+    Playlist.create(user_id: current_user.id,
+                    title: params["title"],
+                    description: params["desc"])
+    redirect_to(dashboard_index_path)
+  end
   # adds track to the playlist
   def add
     track_id = params["playlist"]["track_id"]
