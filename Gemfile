@@ -60,3 +60,5 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
 end
+
+ruby '2.0.0'
