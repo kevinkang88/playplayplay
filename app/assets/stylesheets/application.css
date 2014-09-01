@@ -260,7 +260,6 @@ body {
   height: 500px;
   border-bottom: 1px solid gray;
   opacity: 0.9;
-  overflow-y:auto;
 }
 
 #test1 {
@@ -420,8 +419,8 @@ body {
 
 .playlists-box {
   padding: 0 10% 20% 10%;
-    overflow-y:auto;
-  height: 100%;
+  overflow-y:auto;
+  height: 24em;
 }
 
 .page-header {
