@@ -350,8 +350,8 @@ body {
 
 #results-container {
   /*overflow: auto;*/
-  height: 500px;
-  padding-bottom: 20%;
+  overflow-y:auto;
+  height: 25em;
 }
 
 .add-btn  {
@@ -475,8 +475,7 @@ body {
 
 .show-box {
   overflow-y:auto;
-  height: 100%;
-  padding-bottom: 50%;
+  height: 20em;
   margin-right: 5%;
   margin-left: 5%;
 }
@@ -520,7 +519,8 @@ body {
   margin-top: 5%;
   margin-right: 5%;
   margin-left: 5%;
-  padding-bottom: 20%;
+  overflow-y:auto;
+  height: 17em;
 }
 
 .desc-edit textarea {
