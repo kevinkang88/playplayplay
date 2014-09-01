@@ -61,4 +61,4 @@ group :test do
   gem 'shoulda-matchers'
 end
 
-ruby '2.0.0'
+ruby '1.9.3'
