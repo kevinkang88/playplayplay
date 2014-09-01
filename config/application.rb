@@ -66,6 +66,7 @@ module PLAYLTICS
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += ['jquery.fullPage.js']
 
   end
 end
