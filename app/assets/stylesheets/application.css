@@ -159,6 +159,8 @@ body {
   margin: 0 auto;
   /*background-color: red;*/
   width: 500px;
+  font-family: 'Merriweather', serif;
+
 }
 
 #phrase p {
@@ -167,11 +169,20 @@ body {
 }
 
 #signup-btn {
-
+  font-family: 'Montserrat', sans-serif;
+  color:gray;
+  padding: 0 30%;
+  background-color: #D91C5B;
+  border-radius: 3%;
+  border: 0;
+  text-align: center;
+  width: 100%;
 }
 
 
-
+.sign-up-form label{
+  font-family: 'Montserrat', sans-serif;
+}
 
 
 
@@ -249,7 +260,6 @@ body {
   height: 500px;
   border-bottom: 1px solid gray;
   opacity: 0.9;
-  overflow-y:auto;
 }
 
 #test1 {
@@ -340,8 +350,8 @@ body {
 
 #results-container {
   /*overflow: auto;*/
-  height: 500px;
-  padding-bottom: 20%;
+  overflow-y:auto;
+  height: 25em;
 }
 
 .add-btn  {
@@ -409,8 +419,8 @@ body {
 
 .playlists-box {
   padding: 0 10% 20% 10%;
-    overflow-y:auto;
-  height: 100%;
+  overflow-y:auto;
+  height: 24em;
 }
 
 .page-header {
@@ -465,8 +475,7 @@ body {
 
 .show-box {
   overflow-y:auto;
-  height: 100%;
-  padding-bottom: 50%;
+  height: 20em;
   margin-right: 5%;
   margin-left: 5%;
 }
@@ -510,7 +519,8 @@ body {
   margin-top: 5%;
   margin-right: 5%;
   margin-left: 5%;
-  padding-bottom: 20%;
+  overflow-y:auto;
+  height: 17em;
 }
 
 .desc-edit textarea {
