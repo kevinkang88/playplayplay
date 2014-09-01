@@ -29,7 +29,7 @@
           <div id="sign-up-box">
             <div id="sign-up-form">
               <br><br>
-              <%= form_tag(user_registration_path,{:class => ''}) do %>
+              <%= form_tag(user_registration_path,{:class => 'sign-up-form'}) do %>
                 <%= label_tag 'Email:' %>
                 <%= email_field_tag("user[email]",nil,{:class => "span3", :placeholder => 'e.g. test@gmail.com'}) %>
                 <%= label_tag 'Password:' %>
