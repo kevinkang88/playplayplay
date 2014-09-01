@@ -4,6 +4,7 @@ gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'unicorn'
 gem 'remotipart', '~> 1.2'
 gem 'therubyracer'  # If using Ruby
 gem 'less-rails-bootstrap'
