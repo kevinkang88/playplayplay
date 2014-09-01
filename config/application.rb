@@ -67,7 +67,7 @@ module PLAYLTICS
 
     config.assets.initialize_on_precompile = false
     config.assets.precompile += ['jquery.fullPage.css']
-    config.assets.precompile += ['bootstrap.min.css']
+    # config.assets.precompile += ['bootstrap.min.css']
 
   end
 end
